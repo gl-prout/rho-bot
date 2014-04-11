@@ -15,5 +15,10 @@ namespace r_bots
         {
             InitializeComponent();
         }
+
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
