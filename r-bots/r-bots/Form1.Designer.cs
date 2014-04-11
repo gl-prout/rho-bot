@@ -32,21 +32,21 @@
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Camera1 = new System.Windows.Forms.PictureBox();
             this.Camera2 = new System.Windows.Forms.PictureBox();
+            this.Camera1 = new System.Windows.Forms.PictureBox();
             this.ListeDesProcessus = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Camera1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Camera2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Camera1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.Black;
+            this.menuStrip1.BackColor = System.Drawing.Color.Silver;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fichierToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -59,15 +59,15 @@
             // 
             this.fichierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quitterToolStripMenuItem});
-            this.fichierToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.fichierToolStripMenuItem.ForeColor = System.Drawing.Color.Chartreuse;
             this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
             this.fichierToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.fichierToolStripMenuItem.Text = "Fichier";
             // 
             // quitterToolStripMenuItem
             // 
-            this.quitterToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.quitterToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.quitterToolStripMenuItem.BackColor = System.Drawing.Color.Silver;
+            this.quitterToolStripMenuItem.ForeColor = System.Drawing.Color.Chartreuse;
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
             this.quitterToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
@@ -84,27 +84,28 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // Camera1
-            // 
-            this.Camera1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.Camera1.Location = new System.Drawing.Point(12, 20);
-            this.Camera1.Name = "Camera1";
-            this.Camera1.Size = new System.Drawing.Size(480, 320);
-            this.Camera1.TabIndex = 0;
-            this.Camera1.TabStop = false;
-            // 
             // Camera2
             // 
-            this.Camera2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Camera2.BackColor = System.Drawing.Color.Black;
             this.Camera2.Location = new System.Drawing.Point(509, 19);
             this.Camera2.Name = "Camera2";
             this.Camera2.Size = new System.Drawing.Size(480, 320);
             this.Camera2.TabIndex = 1;
             this.Camera2.TabStop = false;
             // 
+            // Camera1
+            // 
+            this.Camera1.BackColor = System.Drawing.Color.Black;
+            this.Camera1.Location = new System.Drawing.Point(12, 20);
+            this.Camera1.Name = "Camera1";
+            this.Camera1.Size = new System.Drawing.Size(480, 320);
+            this.Camera1.TabIndex = 0;
+            this.Camera1.TabStop = false;
+            // 
             // ListeDesProcessus
             // 
-            this.ListeDesProcessus.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ListeDesProcessus.BackColor = System.Drawing.Color.Black;
+            this.ListeDesProcessus.ForeColor = System.Drawing.Color.Chartreuse;
             this.ListeDesProcessus.Location = new System.Drawing.Point(10, 20);
             this.ListeDesProcessus.Name = "ListeDesProcessus";
             this.ListeDesProcessus.ReadOnly = true;
@@ -114,9 +115,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.Black;
+            this.groupBox2.BackColor = System.Drawing.Color.Silver;
             this.groupBox2.Controls.Add(this.ListeDesProcessus);
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.ForeColor = System.Drawing.Color.Chartreuse;
             this.groupBox2.Location = new System.Drawing.Point(509, 45);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(503, 355);
@@ -138,12 +139,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
+            this.ForeColor = System.Drawing.Color.Chartreuse;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(10, 10);
             this.MainMenuStrip = this.menuStrip1;
@@ -155,8 +157,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Camera1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Camera2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Camera1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
