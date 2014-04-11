@@ -20,5 +20,10 @@ namespace r_bots
         {
             this.Close();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            ListeDesProcessus.Text += "Programme initialisé...\n";
+        }
     }
 }
