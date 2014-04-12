@@ -30,8 +30,8 @@ namespace r_bots
         private void nouveauMail()
         {
             Synthese reponse = new Synthese();
-            ListeDesProcessus.Text += "POP3 Mail Client Demo\n";
-            ListeDesProcessus.Text += "=====================\n\n";
+            ListeDesProcessus.Text += "Envoie requete de demande de nouveau mail\n";
+            ListeDesProcessus.Text += "====================================\n";
             try
             {
                 //prepare pop client
