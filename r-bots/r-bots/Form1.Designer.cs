@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,11 +38,13 @@
             this.ListeDesProcessus = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Camera2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Camera1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -106,10 +109,10 @@
             // 
             this.ListeDesProcessus.BackColor = System.Drawing.Color.Black;
             this.ListeDesProcessus.ForeColor = System.Drawing.Color.Chartreuse;
-            this.ListeDesProcessus.Location = new System.Drawing.Point(10, 20);
+            this.ListeDesProcessus.Location = new System.Drawing.Point(16, 19);
             this.ListeDesProcessus.Name = "ListeDesProcessus";
             this.ListeDesProcessus.ReadOnly = true;
-            this.ListeDesProcessus.Size = new System.Drawing.Size(480, 320);
+            this.ListeDesProcessus.Size = new System.Drawing.Size(660, 320);
             this.ListeDesProcessus.TabIndex = 2;
             this.ListeDesProcessus.Text = "";
             // 
@@ -118,16 +121,16 @@
             this.groupBox2.BackColor = System.Drawing.Color.Silver;
             this.groupBox2.Controls.Add(this.ListeDesProcessus);
             this.groupBox2.ForeColor = System.Drawing.Color.Chartreuse;
-            this.groupBox2.Location = new System.Drawing.Point(509, 45);
+            this.groupBox2.Location = new System.Drawing.Point(322, 45);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(503, 355);
+            this.groupBox2.Size = new System.Drawing.Size(690, 355);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Processus";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(428, 45);
+            this.button1.Location = new System.Drawing.Point(284, 16);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
@@ -135,12 +138,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(21, 54);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(295, 346);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -160,6 +174,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Camera2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Camera1)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,6 +191,7 @@
         private System.Windows.Forms.RichTextBox ListeDesProcessus;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
