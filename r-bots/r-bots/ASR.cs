@@ -11,23 +11,14 @@ namespace r_bots
     class ASR
     {
         public SpeechRecognitionEngine ASREngine;
-        private Label recoText;
-        private Label commandText;
-        private Label devine;
-        private Label affiche;
+        private RichTextBox message;
 
         /// <summary>
         /// Constructeur de l'ASR (Automatic Speech Recognition)
         /// </summary>
-        public ASR(ref Label recoText, ref Label commandText, ref Label devine, ref Label affiche)
+        public ASR(ref RichTextBox messages)
         {
-            //Les 4 labels dont le texte devra être changé
-            //en fonction de ce qui est reconnu
-            this.recoText = recoText;
-            this.commandText = commandText;
-            this.devine = devine;
-            this.affiche = affiche;
-            //Démarrage du moteur de reconnaissance vocale
+            this.message = messages;
             StartEngine();
         }
 
@@ -37,24 +28,31 @@ namespace r_bots
         /// </summary>
         private void StartEngine()
         {
-            //Création d'un document de la norme SRGS à partir du fichier grxml
-            SrgsDocument xmlGrammar = new SrgsDocument("Grammaire.grxml");
-            //Création d'une grammaire depuis le fichier de grammaire
-            Grammar grammar = new Grammar(xmlGrammar);
-            //Création de l'objet traitant la reconnaissance vocale
-            ASREngine = new SpeechRecognitionEngine();
-            //Récupération du son du microphone
-            ASREngine.SetInputToDefaultAudioDevice();
-            //Chargement de la grammaire
-            ASREngine.LoadGrammar(grammar);
-            //Link des fonctions a appeler en cas de reconnaissance d'un texte
-            ASREngine.SpeechRecognized += ASREngine_SpeechRecognized;
-            ASREngine.SpeechRecognitionRejected += ASREngine_SpeechRecognitionRejected;
-            ASREngine.SpeechHypothesized += ASREngine_SpeechHypothesized;
-            //Spécification du nombre maximum d'alternatives
-            //Par exemple : b ou p ou d ou t, t ou d, i ou j, etc.
-            //Utile pour les sons qui se ressemblent
-            ASREngine.MaxAlternates = 4;
+            try
+            {
+                //Création d'un document de la norme SRGS à partir du fichier grxml
+                SrgsDocument xmlGrammar = new SrgsDocument("H:\\Projet\\2014\\rho-bot\\r-bots\\Grammaire.xml");
+                //Création d'une grammaire depuis le fichier de grammaire
+                Grammar grammar = new Grammar(xmlGrammar);
+                //Création de l'objet traitant la reconnaissance vocale
+                ASREngine = new SpeechRecognitionEngine();
+                //Récupération du son du microphone
+                ASREngine.SetInputToDefaultAudioDevice();
+                //Chargement de la grammaire
+                ASREngine.LoadGrammar(grammar);
+                //Link des fonctions a appeler en cas de reconnaissance d'un texte
+                ASREngine.SpeechRecognized += ASREngine_SpeechRecognized;
+                ASREngine.SpeechRecognitionRejected += ASREngine_SpeechRecognitionRejected;
+                ASREngine.SpeechHypothesized += ASREngine_SpeechHypothesized;
+                //Spécification du nombre maximum d'alternatives
+                //Par exemple : b ou p ou d ou t, t ou d, i ou j, etc.
+                //Utile pour les sons qui se ressemblent
+                ASREngine.MaxAlternates = 4;
+            }
+            catch (Exception ex)
+            {
+                this.message.Text += ex.Message + "\n";
+            }
         }
 
         /// <summary>
@@ -69,6 +67,7 @@ namespace r_bots
         /// </summary>
         private void ASREngine_SpeechRecognitionRejected(object sender, SpeechRecognitionRejectedEventArgs e)
         {
+            this.message.Text += "Reconnaissance impossible\n";
         }
 
         /// <summary>
@@ -76,6 +75,35 @@ namespace r_bots
         /// </summary>
         private void ASREngine_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
+            this.message.Text += "Texte reconnu: "+e.Result.Text + "\n";
+            //Récupération de la commande de base utilisée (QUIT ou LEARN)
+            string baseCommand = e.Result.Semantics["mouskie"].Value.ToString();
+            this.message.Text += "Commande reçu: " +baseCommand;
+            if (baseCommand.Equals("QUIT"))
+                Environment.Exit(0);
+            else if (baseCommand.Equals("LEARN"))
+            {
+                string dataType = e.Result.Semantics["data_type"].Value.ToString();
+                this.message.Text += " " + dataType+"\n";
+                string node = "";
+                //Choix du noeud en fonction de la commande trouvée
+                if (dataType.Equals("NUMBER"))
+                    node = "numbers";
+                else if (dataType.Equals("LETTER"))
+                    node = "letters";
+                try
+                {   //Parcours des alternatives pour toutes les afficher
+                    for (int i = 0; i < e.Result.Alternates.ToArray().Length; i++)
+                    {
+                        string found = e.Result.Alternates.ToArray()[i].Semantics["data_type"][node].Value.ToString();
+                        if (i != 0)
+                            this.message.Text += " ou ";
+                        this.message.Text += found;
+                    }
+                    this.message.Text += "\n";
+                }
+                catch { }
+            }
         }
     }
 }

@@ -6,14 +6,17 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Speech.Recognition;
 
 namespace r_bots
 {
     public partial class Form1 : Form
     {
+        private ASR ASR;
         public Form1()
         {
             InitializeComponent();
+            ASR = new ASR(ref this.ListeDesProcessus);
         }
 
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -24,7 +27,16 @@ namespace r_bots
         private void Form1_Load(object sender, EventArgs e)
         {
             ListeDesProcessus.Text += "Programme initialisé...\n";
-            
+            ListeDesProcessus.Text += "Démarrage de la reconnaissance vocale...\n";
+            try
+            {
+                //Activation de la reconnaissance vocale pour une commande
+                ASR.ASREngine.RecognizeAsync(RecognizeMode.Multiple);
+            }
+            catch (Exception ex)
+            {
+                ListeDesProcessus.Text += ex.Message + "\n";
+            }
         }
 
         private void nouveauMail()
