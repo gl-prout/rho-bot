@@ -31,7 +31,7 @@ namespace r_bots
             try
             {
                 //Création d'un document de la norme SRGS à partir du fichier grxml
-                SrgsDocument xmlGrammar = new SrgsDocument("H:\\Projet\\2014\\rho-bot\\r-bots\\Grammaire.xml");
+                SrgsDocument xmlGrammar = new SrgsDocument("H:\\Projet\\2014\\rho-bot\\r-bots\\r-bots\\Grammaire.xml");
                 //Création d'une grammaire depuis le fichier de grammaire
                 Grammar grammar = new Grammar(xmlGrammar);
                 //Création de l'objet traitant la reconnaissance vocale
@@ -47,7 +47,7 @@ namespace r_bots
                 //Spécification du nombre maximum d'alternatives
                 //Par exemple : b ou p ou d ou t, t ou d, i ou j, etc.
                 //Utile pour les sons qui se ressemblent
-                ASREngine.MaxAlternates = 4;
+                ASREngine.MaxAlternates = 10;
             }
             catch (Exception ex)
             {
@@ -78,13 +78,19 @@ namespace r_bots
             this.message.Text += "Texte reconnu: "+e.Result.Text + "\n";
             //Récupération de la commande de base utilisée (QUIT ou LEARN)
             string baseCommand = e.Result.Semantics["mouskie"].Value.ToString();
-            this.message.Text += "Commande reçu: " +baseCommand;
+            this.message.Text += "Commande reçu: " +baseCommand+"\n";
             if (baseCommand.Equals("QUIT"))
+            {
                 Environment.Exit(0);
+            }
+            else if (baseCommand.Equals("Hello"))
+            {
+                Console.WriteLine("Salutation humain");
+            }
             else if (baseCommand.Equals("LEARN"))
             {
                 string dataType = e.Result.Semantics["data_type"].Value.ToString();
-                this.message.Text += " " + dataType+"\n";
+                this.message.Text += " " + dataType + "\n";
                 string node = "";
                 //Choix du noeud en fonction de la commande trouvée
                 if (dataType.Equals("NUMBER"))

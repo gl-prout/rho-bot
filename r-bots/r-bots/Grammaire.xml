@@ -13,6 +13,16 @@ root="mouskie" xmlns="http://www.w3.org/2001/06/grammar">
       </item>
       <item>
         <one-of>
+          <item>bonjour</item>
+          <item>bonsoir</item>
+          <item>combien de nouveau courrier</item>
+          <item>combien de nouveau mail</item>
+          <item>combien de nouveau message</item>
+        </one-of>
+        <tag>$.mouskie={}; $.mouskie._value="HELLO";</tag>
+      </item>
+      <item>
+        <one-of>
           <item>affiche</item>
           <item>montre</item>
           <item>c'est</item>
@@ -41,13 +51,36 @@ root="mouskie" xmlns="http://www.w3.org/2001/06/grammar">
     <one-of>
       <item>a</item>
       <item>b</item>
+      <item>c</item>
+      <item>d</item>
+      <item>e</item>
+      <item>f</item>
+      <item>g</item>
+      <item>h</item>
+      <item>i</item>
+      <item>j</item>
+      <item>k</item>
+      <item>l</item>
+      <item>m</item>
+      <item>n</item>
+      <item>o</item>
+      <item>p</item>
+      <item>q</item>
+      <item>r</item>
+      <item>s</item>
+      <item>t</item>
+      <item>u</item>
+      <item>v</item>
+      <item>w</item>
+      <item>x</item>
+      <item>y</item>
+      <item>z</item>
     </one-of>
     <tag>$._value = $recognized.text;</tag>
   </rule>
   <rule id="numbers" scope="public">
     <one-of>
-      <item>0</item>
-      <item>1</item>
+      <item>courrier</item>
     </one-of>
     <tag>$._value = $recognized.text;</tag>
   </rule>
