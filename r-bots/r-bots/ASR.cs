@@ -31,7 +31,7 @@ namespace r_bots
             try
             {
                 //Création d'un document de la norme SRGS à partir du fichier grxml
-                SrgsDocument xmlGrammar = new SrgsDocument("H:\\Projet\\2014\\rho-bot\\r-bots\\r-bots\\Grammaire.xml");
+                SrgsDocument xmlGrammar = new SrgsDocument(@"H:\dev_software\projet\rho-bot\r-bots\r-bots\Grammaire.xml");
                 //Création d'une grammaire depuis le fichier de grammaire
                 Grammar grammar = new Grammar(xmlGrammar);
                 //Création de l'objet traitant la reconnaissance vocale

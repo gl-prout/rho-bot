@@ -15,12 +15,14 @@ namespace r_bots
         private HaarCascade haarCascade;
         private PictureBox image1;
         private PictureBox image2;
+        private RichTextBox console;
         Timer timer;
 
-        public Webcam(ref PictureBox imageA, ref PictureBox imageB)
+        public Webcam(ref PictureBox imageA, ref PictureBox imageB, ref RichTextBox msg)
         {
             this.image1 = imageA;
             this.image2 = imageB;
+            this.console = msg;
         }
 
         public void start()

@@ -34,7 +34,7 @@ namespace r_bots
             ListeDesProcessus.Text += "Initialisation de la camera...\n";
             try
             {
-                camera = new Webcam(ref Camera1, ref Camera2);
+                camera = new Webcam(ref Camera1, ref Camera2, ref ListeDesProcessus);
                 camera.start();
                 ListeDesProcessus.Text += "Camera initialise...\n";
             }
