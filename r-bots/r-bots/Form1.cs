@@ -13,6 +13,7 @@ namespace r_bots
     public partial class Form1 : Form
     {
         private ASR ASR;
+        private Webcam camera;
         public Form1()
         {
             InitializeComponent();
@@ -26,7 +27,24 @@ namespace r_bots
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             ListeDesProcessus.Text += "Programme initialisé...\n";
+
+            //* DEBUT CODE FETRA /
+            ListeDesProcessus.Text += "Initialisation de la camera...\n";
+            try
+            {
+                camera = new Webcam(ref Camera1, ref Camera2);
+                camera.start();
+                ListeDesProcessus.Text += "Camera initialise...\n";
+            }
+            catch (Exception ex)
+            {
+                ListeDesProcessus.Text += "Erreur: " + ex.Message + "\n";
+            }
+            //* FIN CODE FETRA */
+
+            //* DEBUT CODE MAHERY /
             ListeDesProcessus.Text += "Démarrage de la reconnaissance vocale...\n";
             try
             {
@@ -37,6 +55,10 @@ namespace r_bots
             {
                 ListeDesProcessus.Text += ex.Message + "\n";
             }
+
+            //* FIN CODE MAHERY */
+
+            
         }
 
         private void nouveauMail()
