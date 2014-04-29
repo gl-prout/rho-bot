@@ -89,6 +89,7 @@
             // Camera2
             // 
             this.Camera2.BackColor = System.Drawing.Color.Black;
+            this.Camera2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Camera2.Location = new System.Drawing.Point(509, 19);
             this.Camera2.Name = "Camera2";
             this.Camera2.Size = new System.Drawing.Size(480, 320);
@@ -98,6 +99,7 @@
             // Camera1
             // 
             this.Camera1.BackColor = System.Drawing.Color.Black;
+            this.Camera1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Camera1.Location = new System.Drawing.Point(12, 20);
             this.Camera1.Name = "Camera1";
             this.Camera1.Size = new System.Drawing.Size(480, 320);

@@ -13,17 +13,13 @@ root="mouskie" xmlns="http://www.w3.org/2001/06/grammar">
       </item>
       <item>
         <one-of>
-          <item>redemarrer</item>
-        </one-of>
-        <tag>$.mouskie={}; $.mouskie._value="RESTART";</tag>
-      </item>
-      <item>
-        <one-of>
+          <item>bonjour</item>
+          <item>bonsoir</item>
           <item>combien de nouveau courrier</item>
           <item>combien de nouveau mail</item>
           <item>combien de nouveau message</item>
         </one-of>
-        <tag>$.mouskie={}; $.mouskie._value="MESSAGE";</tag>
+        <tag>$.mouskie={}; $.mouskie._value="HELLO";</tag>
       </item>
       <item>
         <one-of>

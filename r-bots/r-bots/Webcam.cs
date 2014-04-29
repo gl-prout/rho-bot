@@ -11,7 +11,8 @@ namespace r_bots
 {
     class Webcam
     {
-        private Capture capture;
+        private Capture captureGauche;
+        private Capture captureDroite;
         private HaarCascade haarCascade;
         private PictureBox image1;
         private PictureBox image2;
@@ -27,24 +28,32 @@ namespace r_bots
 
         public void start()
         {
-            capture = new Capture();
-            haarCascade = new HaarCascade(@"H:\Downloads\trollz\libemgucv-windows-x64-gpu-2.2.1.1150\libemgucv-windows-x64-gpu-2.2.1.1150\bin\haarcascade_frontalface_alt_tree.xml");
+            captureGauche = new Capture(0);
+            captureDroite = new Capture(1);
+            if(System.Environment.Is64BitProcess) haarCascade = new HaarCascade(@"H:\Downloads\trollz\libemgucv-windows-x64-gpu-2.2.1.1150\libemgucv-windows-x64-gpu-2.2.1.1150\bin\haarcascade_frontalface_alt_tree.xml");
+            else haarCascade = new HaarCascade(@"haarcascade_frontalface_alt_tree.xml");
             timer = new Timer();
             timer.Tick += new EventHandler(timer_Tick);
-            timer.Interval = 100;
+            timer.Interval = 75;
             timer.Start();
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            Image<Bgr, Byte> currentFrame = capture.QueryFrame();
+            capturer(ref image1,captureGauche);
+            capturer(ref image2,captureDroite);
+        }
+
+        private void capturer(ref PictureBox image, Capture captures)
+        {
+            Image<Bgr, Byte> currentFrame = captures.QueryFrame();
+            Image<Gray, Byte> currentFrameGray = captures.QueryGrayFrame();
             if (currentFrame != null)
             {
-                Image<Gray, Byte> grayFrame = currentFrame.Convert<Gray, Byte>();
-                var detectedFaces = grayFrame.DetectHaarCascade(haarCascade)[0];
+                var detectedFaces = currentFrameGray.DetectHaarCascade(haarCascade)[0];
                 foreach (var face in detectedFaces)
-                    currentFrame.Draw(face.rect, new Bgr(0, double.MaxValue, 0), 3);
-                image1.Image = currentFrame.Bitmap;
+                    currentFrame.Draw(face.rect, new Bgr(double.MaxValue, double.MaxValue, double.MaxValue), 1);
+                image.BackgroundImage = currentFrame.Bitmap;
             }
         }
 
@@ -66,3 +75,4 @@ namespace r_bots
         }*/
     }
 }
+
