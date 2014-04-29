@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace r_bots
 {
@@ -57,9 +58,9 @@ namespace r_bots
             }
         }
 
-        /*[DllImport("gdi32")]
+        [DllImport("gdi32")]
         private static extern int DeleteObject(IntPtr o);
-        public static BitmapSource ToBitmapSource(IImage image)
+        /*public static BitmapSource ToBitmapSource(IImage image)
         {
             using (System.Drawing.Bitmap source = image.Bitmap)
             {
