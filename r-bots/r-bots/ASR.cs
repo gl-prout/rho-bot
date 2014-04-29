@@ -85,9 +85,14 @@ namespace r_bots
             {
                 //Environment.Exit(0);
             }
-            if (baseCommand.Equals("RESTART"))
+            else if (baseCommand.Equals("RESTART"))
             {
                 //Process.Start("shutdown", "/r /t 0");
+            }
+            else if (baseCommand.Equals("HOUR"))
+            {
+                Synthese reponse = new Synthese();
+                //reponse.Parler("il est " + DateTime.Now.Hour + " heures " + DateTime.Now.Minute + " minutes et " + DateTime.Now.Second + " Seconde");
             }
             else if (baseCommand.Equals("MESSAGE"))
             {
