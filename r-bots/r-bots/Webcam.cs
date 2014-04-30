@@ -54,7 +54,7 @@ namespace r_bots
                 var detectedFaces = currentFrameGray.DetectHaarCascade(haarCascade)[0];
                 foreach (var face in detectedFaces)
                     currentFrame.Draw(face.rect, new Bgr(double.MaxValue, double.MaxValue, double.MaxValue), 1);
-                image.BackgroundImage = currentFrame.Bitmap;
+                image.BackgroundImage = currentFrame.Bitmap;                
             }
         }
 

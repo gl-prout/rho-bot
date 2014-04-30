@@ -14,6 +14,7 @@ namespace r_bots
     {
         private ASR ASR;
         private Webcam camera;
+        private Database database;
         public Form1()
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace r_bots
             ListeDesProcessus.Text += Application.LocalUserAppDataPath + "\n";
             ListeDesProcessus.Text += Application.ExecutablePath + "\n";
             ListeDesProcessus.Text += Application.StartupPath + "\n";
+            database = new Database(ref this.ListeDesProcessus);
             //* DEBUT CODE FETRA /
             ListeDesProcessus.Text += "Initialisation de la camera...\n";
             try
