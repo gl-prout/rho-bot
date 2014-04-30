@@ -1,4 +1,7 @@
+*.suo
 *.sln
 *.csproj
 bin/
 obj/
+*.user
+*.config
