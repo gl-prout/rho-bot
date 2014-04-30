@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Drawing;
 
 namespace r_bots
 {
@@ -53,7 +54,12 @@ namespace r_bots
             {
                 var detectedFaces = currentFrameGray.DetectHaarCascade(haarCascade)[0];
                 foreach (var face in detectedFaces)
+                {
+                    Rectangle rect = face.rect;
+                    console.Text += "\n\n\nVisage détédté entre:\n\n";
+                    console.Text += "X= "+rect.Left+" ; "+rect.Right+"\nY= "+rect.Top+" ; "+rect.Right+"\n\n";
                     currentFrame.Draw(face.rect, new Bgr(double.MaxValue, double.MaxValue, double.MaxValue), 1);
+                }
                 image.BackgroundImage = currentFrame.Bitmap;                
             }
         }
